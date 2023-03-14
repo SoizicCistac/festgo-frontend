@@ -22,6 +22,10 @@ myApi.updateFestival = (id, festival) => {
     return myApi.patch(`/api/festivals/${id}`, festival)
 }
 
+myApi.deleteFestival = (id) => {
+    return myApi.delete(`/api/festivals/${id}`)
+}
+
 myApi.addImage = (image) => {
     return myApi.post('/api/festivals/images', image)
 }
@@ -32,6 +36,10 @@ myApi.signUp = (user) => {
 
 myApi.logIn = (user) => {
     return myApi.post('/api/auth/login', user)
+}
+
+myApi.getAllStands = () => {
+    return myApi.get('/api/stand')
 }
 
 export default myApi

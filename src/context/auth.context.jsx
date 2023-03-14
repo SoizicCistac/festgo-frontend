@@ -24,7 +24,7 @@ function AuthProviderWrapper(props) {
         const currentToken = getToken()
         setToken(currentToken)
         try {
-            const res = await myApi.get('/api/auth/profile', {
+            const res = await myApi.get('/api/auth/verify', {
                 headers: {
                     Authorization: `Bearer ${currentToken}`
                 }
@@ -49,7 +49,7 @@ function AuthProviderWrapper(props) {
 
 
 return (
-    <AuthContext.Provider value={{ isLoading, user, authenticateUser, storeToken }}>
+    <AuthContext.Provider value={{ isLoading, user, authenticateUser, removeToken, storeToken }}>
         {props.children}
     </AuthContext.Provider>
 )}

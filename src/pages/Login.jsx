@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/auth.context'
+
 import myApi from '../service/service'
 
 const Login = () => {
@@ -7,6 +9,8 @@ const Login = () => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   const navigate = useNavigate()
+
+  const { user, authenticateUser, removeToken } = useContext(AuthContext)
 
   const handleLogIn = async (event) => {
     event.preventDefault()
@@ -17,7 +21,9 @@ const Login = () => {
     }
   
     const res = await myApi.logIn(UserToLogIn)
-  
+    localStorage.setItem('token', res.data.token)
+    await authenticateUser()
+  console.log(res)
     navigate('/festivals')
 
   }

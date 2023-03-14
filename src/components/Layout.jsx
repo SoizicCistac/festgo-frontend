@@ -1,13 +1,17 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../context/auth.context'
-import { Outlet, NavLink } from 'react-router-dom'
+import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 
 const Layout = () => {
   const { user, authenticateUser, removeToken } = useContext(AuthContext)
+  const navigate = useNavigate()
+
+  console.log("layout", user)
 
   function handleClick() {
     removeToken()
     authenticateUser()
+    navigate('/login')
   }
 
   return (
@@ -34,7 +38,7 @@ const Layout = () => {
                         
                         )
                         : (
-                            <button onClick={handleClick}>Log out</button>
+                            <a onClick={handleClick}>Log out</a>
                         )
                     }
                     

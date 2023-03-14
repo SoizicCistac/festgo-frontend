@@ -1,8 +1,13 @@
 import React from 'react'
 
-const StandCard = () => {
+const StandCard = (props) => {
+  console.log("stand card", props)
+
   return (
-    <div>StandCard</div>
+    <div>
+      <h3>{props.stand.name}</h3>
+      <p>{props.stand.description}</p>
+    </div>
   )
 }
 
