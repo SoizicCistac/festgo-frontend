@@ -42,4 +42,20 @@ myApi.getAllStands = () => {
     return myApi.get('/api/stand')
 }
 
+myApi.createStand = (stand) => {
+    return myApi.post('/api/stand', stand)
+}
+
+myApi.getOneStand = (id) => {
+    return myApi.get(`/api/stand/${id}`)
+}
+
+myApi.updateStand = (id, stand) => {
+    return myApi.patch(`/api/stand/${id}`, stand)
+}
+
+myApi.deleteStand = (id) => {
+    return myApi.delete(`/api/stand/${id}`)
+}
+
 export default myApi

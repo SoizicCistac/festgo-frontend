@@ -6,8 +6,6 @@ const Layout = () => {
   const { user, authenticateUser, removeToken } = useContext(AuthContext)
   const navigate = useNavigate()
 
-  console.log("layout", user)
-
   function handleClick() {
     removeToken()
     authenticateUser()
@@ -20,17 +18,18 @@ const Layout = () => {
             <nav>
                 <ul>
                     <li>
-                        <NavLink to={"/"}>Home</NavLink>
+                        <NavLink to={"/festivals"}>Home</NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink to={"/profile"}>Profile</NavLink>
-                    </li>
+                    </li> */}
                     {
                         !user ? (
                             <>
                             <li>
                                 <NavLink to={"/login"}>Log in</NavLink>
                             </li>
+                            <p>/</p>
                             <li>
                                 <NavLink to={"/signup"}>Sign up</NavLink>
                             </li>
@@ -38,13 +37,10 @@ const Layout = () => {
                         
                         )
                         : (
-                            <a onClick={handleClick}>Log out</a>
+                            <a id="logout" onClick={handleClick}>Log out</a>
                         )
                     }
                     
-                    <li>
-                        <NavLink to={"/festivals"}>Festivals</NavLink>
-                    </li>
                 </ul>
             </nav>
         </header>

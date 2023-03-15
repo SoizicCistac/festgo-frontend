@@ -1,37 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Dekko&family=Kaushan+Script&family=Kavivanar&family=Poppins:wght@200;300;400&display=swap');
+
+:root {
+  --font-title : 'Kaushan Script', cursive;
+  --font-text: 'Poppins', sans-serif;
+}
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-style: var(--font-text);
 }
 
 header {
   height: 4rem;
+  width: 100vw;
   background-color: rgb(58, 161, 250);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 2rem;
-  margin-bottom: 2rem ;
 }
 
 header ul {
   display: flex;
   list-style: none;
+}
+
+.homepage {
+  background-image: url('./assets/background.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+nav a,
+nav a:link,
+nav a:active,
+nav a:visited {
+  color: white;
+  margin: 0 0.5rem;
   justify-content: space-between;
 }
 
-a,
-a:active,
-a:visited {
-  color: black;
+#logout {
+  color: white;
 }
 
-main {
-  max-width: 1280px;
-  margin: 0 auto;
+.homeTitle {
+  margin: auto;
   text-align: center;
+  padding: 12rem 10rem 5rem;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  font-family: var(--font-title);
+  font-size: 5rem;
+}
+
+.buttonHomepage {
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+}
+
+.button {
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 2px 2px #888888;
+  border-radius: 10px;
+  color: black !important;
+  padding: 14px 25px;
+  width: 10rem;
+  margin: auto;
 }
 
 #festivalBanner {
   width: 100%;
+}
+
+h2 {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.standImg {
+  width: 100vw;
+  height: auto;
+}
+
+.product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0rem 1rem;
+}
+
+.standDescription {
+  font-style: italic;
+  font-size: 0.9rem;
+  text-align: center;
+  padding-bottom: 1rem;
 }

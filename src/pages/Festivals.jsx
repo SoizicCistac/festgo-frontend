@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { AuthContext } from '../context/auth.context'
 import { Link } from 'react-router-dom'
 import myApi from '../service/service'
 
 const Festivals = () => {
 
   const [ festivals, setFestivals ] = useState([])
+
+  const { user } = useContext(AuthContext)
+
 
   useEffect(() => {
     myApi
@@ -13,10 +17,8 @@ const Festivals = () => {
       .catch(err => console.error(err))
   }, [])
 
-  console.log("festivals", festivals)
-
   return (
-    <div>Festivals
+    <div>
 
     {
       festivals.map(festival => {
@@ -27,9 +29,14 @@ const Festivals = () => {
         </Link>
       })
     }
-    <Link to="/festivals/create">
-      <button>Create a Festival</button>
-    </Link>
+    {
+      user.userType === "admin"
+      ?   <Link to="/festivals/create">
+            <button>Create a Festival</button>
+          </Link>
+      : null
+    }
+   
     
     </div>
   )
