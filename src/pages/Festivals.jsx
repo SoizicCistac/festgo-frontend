@@ -30,9 +30,9 @@ const Festivals = () => {
       })
     }
     {
-      user.userType === "admin"
+      user && user.userType === "admin"
       ?   <Link to="/festivals/create">
-            <button>Create a Festival</button>
+            <button className='create'>Create a Festival</button>
           </Link>
       : null
     }

@@ -22,14 +22,14 @@ const Stand = () => {
 
   console.log(products)
 
-  // const handleClick = async () => {
-  //   try {
-  //     await myApi.deleteStand(params.idstand)
-  //     navigate(`/festivals/${id}`)
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
+  const handleClick = async () => {
+    try {
+      await myApi.deleteStand(params.idstand)
+      navigate(`/festivals/${id}`)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <div>
@@ -46,18 +46,18 @@ const Stand = () => {
       }
 
       {
-        user.userType === "admin"
+        user && user.userType === "admin"
         ?
         <>
           <Link to={"/festivals/"+id+"/stand/"+idstand+"/edit"}>
-            <button>Edit Stand</button>
+            <button className='edit'>Edit Stand</button>
           </Link>
 
-          {/* <Link to={"/festivals/"+id+"/stand/create"}>
-            <button>Add a product</button>
-          </Link> */}
+          <Link to={"/festivals/"+id+"/stand/create"}>
+            <button className='create'>Add a product</button>
+          </Link>
 
-          {/* <button onClick={handleClick}>Delete stand</button> */}
+          <button className='delete' onClick={handleClick}>Delete stand</button>
         </>
         : null
       }

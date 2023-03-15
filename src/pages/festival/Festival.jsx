@@ -52,25 +52,29 @@ if (festival) {
         <h2>{festival.name}</h2>
         <p>From {dateBeginning} to {dateEnd}</p>
       </div>
+
+      <div className='festivalStands'>
         {
           filteredStands.map(stand => {
             return (<StandCard stand={stand}/>)
           })
         }
+      </div>
+        
 
   {
-    user.userType === "admin"
+    user && user.userType === "admin"
     ?
     <>
       <Link to={"/festivals/"+id+"/edit"}>
-        <button>Edit Festival</button>
+        <button className='edit'>Edit Festival</button>
       </Link>
 
       <Link to={"/festivals/"+id+"/stand/create"}>
-        <button>Add a stand</button>
+        <button className='create'>Add a stand</button>
       </Link>
 
-      <button onClick={handleClick}>Delete festival</button>
+      <button className='delete' onClick={handleClick}>Delete festival</button>
     </>
     : null
   }
