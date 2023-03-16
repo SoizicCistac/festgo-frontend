@@ -13,6 +13,7 @@ import EditStand from './pages/stand/EditStand'
 import Festival from './pages/festival/Festival'
 import EditFestival from './pages/festival/EditFestival'
 import ProtectedRoute from './pages/navigation/ProtectedRoute'
+import AddProduct from './pages/stand/AddProduct'
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
             <Route path='/festivals/:id/edit' element={<EditFestival/>}/>
             <Route path='/festivals/:id/stand/create' element={<AddStand/>}/>
             <Route path='/festivals/:id/stand/:idstand/edit' element={<EditStand/>}/>
+            <Route path='/festivals/:id/stand/:idstand/addproduct' element={<AddProduct/>}/>
           </Route>
 
         </Route>

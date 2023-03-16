@@ -20,9 +20,7 @@ const Layout = () => {
                     <li>
                         <NavLink to={"/festivals"}>Home</NavLink>
                     </li>
-                    {/* <li>
-                        <NavLink to={"/profile"}>Profile</NavLink>
-                    </li> */}
+                    {/* If a user is connected, Log out appears, if not, log in and sign up appear */}
                     {
                         !user ? (
                             <>
@@ -34,7 +32,6 @@ const Layout = () => {
                                 <NavLink to={"/signup"}>Sign up</NavLink>
                             </li>
                             </>
-                        
                         )
                         : (
                             <a id="logout" onClick={handleClick}>Log out</a>

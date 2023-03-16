@@ -24,20 +24,26 @@ const Login = () => {
     localStorage.setItem('token', res.data.token)
     await authenticateUser()
     navigate('/festivals')
-
   }
+
   return (
-    <div className='logIn'>      
+    <div className='logIn'>    
+      
       <h2>Log in</h2>
+
       <form onSubmit={handleLogIn}>
         <div className='logInForm'>
-          <label htmlFor="email">Email</label>
+          <label className="label" htmlFor="email">Email</label>
           <input value={email} type="text" name="email" id="email" onChange={(event) => setEmail(event.target.value)}/>
-          <label htmlFor="password">password</label>
+          
+          <label className="label" htmlFor="password">password</label>
           <input value={password} type="password" name="password" id="password" onChange={(event) => setPassword(event.target.value)}/>
         </div>
-        <button>Log in</button>
+
+        <button className='buttonLog'>Log in</button>
+
         <p>Don't have an account yet? <Link to='/signup'>Sign up</Link></p>
+
       </form>
     </div>
   )

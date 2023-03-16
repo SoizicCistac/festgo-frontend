@@ -20,7 +20,6 @@ const Stand = () => {
       })
   }, [])
 
-  console.log(products)
 
   const handleClick = async () => {
     try {
@@ -30,6 +29,9 @@ const Stand = () => {
       console.error(error)
     }
   }
+  if(!oneStand || !products.length){
+    return
+}
 
   return (
     <div>
@@ -37,7 +39,7 @@ const Stand = () => {
       <h2>{oneStand.name}</h2>
       <p className='standDescription'>{oneStand.description}</p>
 
-      { products.map((product) =>{
+      { products && products.map((product) =>{
           return <div className='product'>
             <p>{product.name}</p>
             <p>{product.price} €</p>
@@ -53,7 +55,7 @@ const Stand = () => {
             <button className='edit'>Edit Stand</button>
           </Link>
 
-          <Link to={"/festivals/"+id+"/stand/create"}>
+          <Link to={"/festivals/"+id+"/stand/"+idstand+"/addproduct"}>
             <button className='create'>Add a product</button>
           </Link>
 
@@ -61,9 +63,7 @@ const Stand = () => {
         </>
         : null
       }
-      {/* <button>Edit</button>
-      <button>Delete</button> */}
-      {/* <button>Add Products</button> */}
+
     </div>
   )
 }

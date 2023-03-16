@@ -33,35 +33,32 @@ const AddStand = () => {
   }
 
   return (
-    <div>
+    <div className='createStand'>
       <h2>Add a stand for {festival.name}</h2>
 
       <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="name">Name of the stand</label>
-                <input value={name} type="text" name="name" id="name" onChange={(event) => setName(event.target.value)}/>
-            </div>
-            <div>
-                <label htmlFor="description">Description</label>
-                <input value={description} type="text" name="description" id="dateBeginning" onChange={(event) => setDescription(event.target.value)}/>
-            </div>
-            <div>
-              <select value={standType} name="standType" id="standType" onChange={event => setStandType(event.target.value)}>
-                <option disabled value="-1">Please choose</option>
-                <option value="burger">Burger</option>
-                <option value="drinks">Drinks</option>
-                <option value="noodles">Noodles</option>
-                <option value="pizza">Pizza</option>
-                <option value="salads">Salads</option>
-                <option value="sushi">Sushi</option>
-                <option value="yakitori">Yakitori</option>
-                <option value="default">Other</option>
-              </select>
-            </div>
+        <div className='createStandForm'>
+          <label className="label" htmlFor="name">Name of the stand</label>
+          <input value={name} type="text" name="name" id="name" onChange={(event) => setName(event.target.value)}/>
 
-            <button>Create</button>
-        </form>
+          <label className="label" htmlFor="description">Description</label>
+          <input value={description} type="text" name="description" id="description" onChange={(event) => setDescription(event.target.value)}/>
+          
+          <select value={standType} name="standType" id="standType" onChange={event => setStandType(event.target.value)}>
+            <option disabled selected="selected">Please choose</option>
+            <option value="burger">Burger</option>
+            <option value="drinks">Drinks</option>
+            <option value="noodles">Noodles</option>
+            <option value="pizza">Pizza</option>
+            <option value="salads">Salads</option>
+            <option value="sushi">Sushi</option>
+            <option value="yakitori">Yakitori</option>
+            <option value="default">Other</option>
+          </select>
+        </div>
 
+        <button className='create'>Create</button>
+      </form>
     </div>
   )
 }

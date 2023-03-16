@@ -18,7 +18,7 @@ const Festivals = () => {
   }, [])
 
   return (
-    <div>
+    <div className='festivals'>
 
     {
       festivals.map(festival => {

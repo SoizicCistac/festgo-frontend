@@ -58,4 +58,8 @@ myApi.deleteStand = (id) => {
     return myApi.delete(`/api/stand/${id}`)
 }
 
+myApi.addProduct = (id, product) => {
+    return myApi.patch(`/api/stand/${id}/addProduct`, product)
+}
+
 export default myApi

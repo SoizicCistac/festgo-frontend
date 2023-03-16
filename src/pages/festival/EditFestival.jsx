@@ -47,36 +47,31 @@ const EditFestival = () => {
             const res = await myApi.updateFestival(params.id, festivalToUpdate)
         }
         
-
         navigate('/festivals')
     }
 
   return (
-    <div>
+    <div className='editFestival'>
         <h2>Update {name}</h2>
         <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="name">Name of the Festival</label>
+            <div className='editFestivalForm'>
+                <label className='label' htmlFor="name">Name of the Festival</label>
                 <input value={name} type="text" name="name" id="name" onChange={(event) => setName(event.target.value)}/>
-            </div>
-            <div>
-                <label htmlFor="dateBeginning">From</label>
+
+                <label className='label' htmlFor="dateBeginning">From</label>
                 <input value={dateBeginning} type="date" name="dateBeginning" id="dateBeginning" onChange={(event) => setDateBeginning(event.target.value)}/>
-            </div>
-            <div>
-                <label htmlFor="dateEnd">To</label>
+
+                <label className='label' htmlFor="dateEnd">To</label>
                 <input value={dateEnd} type="date" name="dateEnd" id="dateEnd" onChange={(event) => setDateEnd(event.target.value)}/>
-            </div>
-            <div>
-                <label htmlFor="location">At</label>
+
+                <label className='label' htmlFor="location">At</label>
                 <input value={location} type="text" name="location" id="location" onChange={(event) => setLocation(event.target.value)}/>
-            </div>
-            <div>
-                <label htmlFor="picture">Picture</label>
+
+                <label className='label' htmlFor="picture">Picture</label>
                 <input type="file" name="picture" id="picture" onChange={(event) => setPictureFile(event.target.files[0])}/>
             </div>
 
-            <button>Update</button>
+            <button className='edit'>Update</button>
         </form>
 
     </div>
