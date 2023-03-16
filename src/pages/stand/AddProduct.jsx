@@ -20,8 +20,6 @@ const AddProduct = () => {
             })
     }, [])
 
-    console.log("stand addproduct", stand)
-
     const handleSubmit = async (event) => {
         event.preventDefault()
   
@@ -31,8 +29,6 @@ const AddProduct = () => {
                 price
             }
     
-  
-        console.log("add product", productToUpdate)
         const res = await myApi.addProduct(idstand, productToUpdate)
   
         navigate(`/festivals/${id}/stand/${idstand}`)
@@ -46,7 +42,7 @@ const AddProduct = () => {
     
         <form onSubmit={handleSubmit}>
             <div className='createProductForm'>
-                <label className="label" htmlFor="name">Name of the stand</label>
+                <label className="label" htmlFor="name">Name of the product</label>
                 <input value={name} type="text" name="name" id="name" onChange={(event) => setName(event.target.value)}/>
                 <label className="label" htmlFor="price">Price</label>
                 <input value={price} type="number" name="price" id="price" onChange={(event) => setPrice(event.target.value)}/>

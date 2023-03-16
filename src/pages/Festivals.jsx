@@ -9,7 +9,7 @@ const Festivals = () => {
 
   const { user } = useContext(AuthContext)
 
-
+  // get all the festivals from the API
   useEffect(() => {
     myApi
       .getAllFestivals()
@@ -19,7 +19,6 @@ const Festivals = () => {
 
   return (
     <div className='festivals'>
-
     {
       festivals.map(festival => {
         return <Link to={"/festivals/"+festival._id}>
@@ -36,8 +35,6 @@ const Festivals = () => {
           </Link>
       : null
     }
-   
-    
     </div>
   )
 }

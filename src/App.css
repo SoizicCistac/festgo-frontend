@@ -64,7 +64,7 @@ nav a:visited {
   color: white;
   text-shadow: 2px 2px 4px #000000;
   font-family: var(--font-title);
-  font-size: 7rem;
+  font-size: 6rem;
 }
 
 .buttonHomepage {
@@ -138,6 +138,10 @@ nav a:visited {
 /* FESTIVALS PAGE */
 #festivalBanner {
   width: 100%;
+}
+
+.festivals {
+  margin-top: 3rem;
 }
 
 /* FESTIVAL PAGE */

@@ -33,8 +33,6 @@ const EditStand = () => {
 
     const res = await myApi.updateStand(params.idstand, standToUpdate)
 
-    console.log("edit stand", standToUpdate)
-
     navigate(`/festivals/${festival._id}`)
 }
 
