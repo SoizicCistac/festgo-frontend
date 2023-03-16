@@ -3,9 +3,9 @@ import myApi from '../service/service'
 export const AuthContext = createContext()
 
 function AuthProviderWrapper(props) {
-    const [ isLoading, setIsLoading ] = useState(true)
-    const [ user, setUser ] = useState(null)
-    const [ token, setToken ] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+    const [user, setUser] = useState(null)
+    const [token, setToken] = useState(null)
 
     function storeToken(receivedToken) {
         localStorage.setItem('token', receivedToken)
@@ -21,21 +21,23 @@ function AuthProviderWrapper(props) {
     }
 
     async function authenticateUser() {
-        const currentToken = getToken()
-        setToken(currentToken)
         try {
+            const currentToken = getToken()
+            setToken(currentToken)
+            if (!currentToken) {
+                setUser(null)
+                setIsLoading(false)
+                return
+            }
             const res = await myApi.get('/api/auth/verify', {
                 headers: {
                     Authorization: `Bearer ${currentToken}`
                 }
             })
-            if(res.status === 200) {
-                setUser(res.data)
-                setIsLoading(false)
-            } else {
-                setUser(null)
-                setIsLoading(false)
-            }
+
+            setUser(res.data)
+            setIsLoading(false)
+
         } catch (error) {
             setUser(null)
             setIsLoading(false)
@@ -43,14 +45,15 @@ function AuthProviderWrapper(props) {
     }
 
     useEffect(() => {
-      authenticateUser()
+        authenticateUser()
     }, [])
 
 
-return (
-    <AuthContext.Provider value={{ isLoading, user, authenticateUser, removeToken, storeToken }}>
-        {props.children}
-    </AuthContext.Provider>
-)}
+    return (
+        <AuthContext.Provider value={{ isLoading, user, authenticateUser, removeToken, storeToken }}>
+            {props.children}
+        </AuthContext.Provider>
+    )
+}
 
 export default AuthProviderWrapper

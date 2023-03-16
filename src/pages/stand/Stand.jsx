@@ -6,7 +6,7 @@ import myApi from '../../service/service'
 const Stand = () => {
   const params = useParams()
   const [ oneStand, setOneStand ] = useState('')
-  const [ products, setProducts ] = useState([])
+  const [ products, setProducts ] = useState(null)
   const { idstand, id } = params
   const navigate = useNavigate()
   const { user } = useContext(AuthContext)
@@ -29,7 +29,7 @@ const Stand = () => {
       console.error(error)
     }
   }
-  if(!oneStand || !products.length){
+  if(!oneStand || !products){
     return
 }
 
@@ -39,7 +39,7 @@ const Stand = () => {
       <h2>{oneStand.name}</h2>
       <p className='standDescription'>{oneStand.description}</p>
 
-      { products && products.map((product) =>{
+      { products.length !== 0 && products.map((product) =>{
           return <div className='product'>
             <p>{product.name}</p>
             <p>{product.price} €</p>

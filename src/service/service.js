@@ -6,6 +6,14 @@ const myApi = axios.create({
     baseURL: BACKEND_URL
 })
 
+myApi.interceptors.request.use((config) => {
+    const token = localStorage.token
+    if(token) {
+        config.headers.Authorization =  `Bearer ${token}`
+    }
+    return config
+})
+
 myApi.getAllFestivals = () => {
     return myApi.get(`/api/festivals`)
 }

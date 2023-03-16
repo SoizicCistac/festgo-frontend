@@ -32,6 +32,8 @@ const Festival = () => {
 
   const filteredStands = allStand.filter((stand => stand.festival === id))
 
+  console.log(filteredStands)
+
   const handleClick = async () => {
     try {
       await myApi.deleteFestival(params.id)
