@@ -35,7 +35,7 @@ const Stand = () => {
 
   return (
     <div>
-      <img className="standImg" src={"/src/assets/"+oneStand.standType+".jpeg"} alt={oneStand.standType} />
+      <img className="standImg" src={"/assets/"+oneStand.standType+".jpeg"} alt={oneStand.standType} />
       <h2>{oneStand.name}</h2>
       <p className='standDescription'>{oneStand.description}</p>
 
