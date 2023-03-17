@@ -47,7 +47,7 @@ nav a:visited {
 /* HOMEPAGE */
 
 .homepage {
-  background-image: url('./assets/background.jpeg');
+  background-image: url('/assets/background.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
